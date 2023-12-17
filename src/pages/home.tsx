@@ -10,15 +10,14 @@ export const getServerSideProps = (async () => {
   return { props: { repo } };
 }) satisfies GetServerSideProps<{ repo: any }>;
 
-
 export default function Page({
   repo,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <main>
-        {repo.map((value: any) => (
-          <div>{value.title}</div>
-        ))}
+      {repo.map((value: any) => (
+        <div key={value.id}>{value.title}</div>
+      ))}
     </main>
   );
 }
